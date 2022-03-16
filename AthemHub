@@ -1,0 +1,1227 @@
+-- Gui to Lua
+-- Version: 3.2
+
+-- Instances:
+
+local ScreenGui = Instance.new("ScreenGui")
+local main = Instance.new("Frame")
+local Backgroundofthelabel = Instance.new("TextLabel")
+local AthemHub = Instance.new("TextLabel")
+local CloseRoblox = Instance.new("TextButton")
+local TPESPGUI = Instance.new("TextButton")
+local FLY = Instance.new("TextButton")
+local ClickTPPressQ = Instance.new("TextButton")
+local KnifeReach = Instance.new("TextButton")
+local AimlockNeedToJoinFortniteGangFromWish = Instance.new("TextButton")
+local MadeByLogia = Instance.new("TextLabel")
+
+--Properties:
+
+ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+
+main.Name = "main"
+main.Parent = ScreenGui
+main.BackgroundColor3 = Color3.fromRGB(54, 54, 54)
+main.Position = UDim2.new(0.58054477, 0, 0.665030658, 0)
+main.Size = UDim2.new(0, 438, 0, 247)
+
+Backgroundofthelabel.Name = "Background of t he label"
+Backgroundofthelabel.Parent = main
+Backgroundofthelabel.BackgroundColor3 = Color3.fromRGB(94, 94, 94)
+Backgroundofthelabel.Position = UDim2.new(-0.00228310493, 0, 0, 0)
+Backgroundofthelabel.Size = UDim2.new(0, 173, 0, 247)
+Backgroundofthelabel.Font = Enum.Font.GothamSemibold
+Backgroundofthelabel.Text = ""
+Backgroundofthelabel.TextColor3 = Color3.fromRGB(36, 36, 36)
+Backgroundofthelabel.TextSize = 30.000
+main.Active = true
+main.Draggable = true
+
+AthemHub.Name = "Athem Hub"
+AthemHub.Parent = main
+AthemHub.BackgroundColor3 = Color3.fromRGB(94, 94, 94)
+AthemHub.BorderColor3 = Color3.fromRGB(94, 94, 94)
+AthemHub.Position = UDim2.new(0.0228310507, 0, 0.0364372469, 0)
+AthemHub.Size = UDim2.new(0, 152, 0, 40)
+AthemHub.Font = Enum.Font.GothamSemibold
+AthemHub.Text = "Athem Hub"
+AthemHub.TextColor3 = Color3.fromRGB(180, 180, 180)
+AthemHub.TextSize = 30.000
+AthemHub.TextXAlignment = Enum.TextXAlignment.Left
+AthemHub.TextYAlignment = Enum.TextYAlignment.Bottom
+
+CloseRoblox.Name = "Close Roblox"
+CloseRoblox.Parent = main
+CloseRoblox.BackgroundColor3 = Color3.fromRGB(77, 77, 77)
+CloseRoblox.Position = UDim2.new(0.0433789939, 0, 0.311740905, 0)
+CloseRoblox.Size = UDim2.new(0, 134, 0, 31)
+CloseRoblox.Style = Enum.ButtonStyle.RobloxRoundButton
+CloseRoblox.Font = Enum.Font.SourceSans
+CloseRoblox.Text = "Close Roblox"
+CloseRoblox.TextColor3 = Color3.fromRGB(0, 0, 0)
+CloseRoblox.TextSize = 14.000
+CloseRoblox.MouseButton1Down:Connect(function()
+game:Shutdown()
+end)
+
+TPESPGUI.Name = "TP ESP GUI"
+TPESPGUI.Parent = main
+TPESPGUI.BackgroundColor3 = Color3.fromRGB(77, 77, 77)
+TPESPGUI.Position = UDim2.new(0.0433789939, 0, 0.437246978, 0)
+TPESPGUI.Size = UDim2.new(0, 134, 0, 31)
+TPESPGUI.Style = Enum.ButtonStyle.RobloxRoundButton
+TPESPGUI.Font = Enum.Font.SourceSans
+TPESPGUI.Text = "TP ESP GUI"
+TPESPGUI.TextColor3 = Color3.fromRGB(0, 0, 0)
+TPESPGUI.TextSize = 14.000
+TPESPGUI.MouseButton1Down:Connect(function()
+local PlayerGui = game.CoreGui
+local TweenService = game:GetService("TweenService")
+local UIS = game:GetService("UserInputService")
+
+--local Create = Instance.new
+local Active = true
+
+function Create(Class, Parent, Table)
+	local newObj = Instance.new(Class)
+	newObj.Parent = Parent
+	newObj.Name = GiveName()
+	for i, v in pairs(Table) do
+		local success = pcall(function()
+			return newObj[i]
+		end)
+		if (success) then
+			newObj[i] = v
+		else
+			warn()
+		end
+	end
+	return newObj
+end
+
+function GiveName()
+	local a, b, c, d = math.random(0, 10000), math.random(0, 5000), math.random(0, 10000), math.random(0, 5000)
+	local random = tostring(a .. "-" .. b .. "-" .. c .. "-" .. d .. "-MADEBYBLOODY888")
+	return random
+end
+
+local hbetoggle = false
+local esptoggle = false
+local collisiontoggle = false
+local deletetoggle = false
+local playerstoggle = false
+local connection
+local def
+local target
+
+-- New
+local MainGui = Create("ScreenGui", PlayerGui, {})
+local MainFrame = Create("Frame", MainGui, {
+	BackgroundColor3 = Color3.fromRGB(35, 39, 42), 
+	BackgroundTransparency = 0.2, 
+	BorderSizePixel = 0, 
+	Position = UDim2.new(0.025, 0,0.4, 0), 
+	Size = UDim2.new(0.165, 0,0.185, 0),
+	Draggable = true,
+	Active = true,
+	Selectable = true,
+})
+
+local TopButton = Create("TextButton", MainFrame, {
+	BackgroundColor3 = Color3.fromRGB(35, 39, 42), 
+	BackgroundTransparency = 1, 
+	BorderSizePixel = 0, 
+	Position = UDim2.new(0, 0,0, 0), 
+	Size = UDim2.new(1, 0,0.15, 0),
+	TextColor3 = Color3.fromRGB(255, 255, 255),
+	Font = "Code",
+	TextScaled = true,
+	Text = "Athem Hub TP ESP",
+})
+local Frame2 = Create("Frame", MainFrame, {
+	BackgroundColor3 = Color3.fromRGB(35, 39, 42), 
+	BackgroundTransparency = 1, 
+	BorderSizePixel = 0, 
+	Position = UDim2.new(0, 0,0.15, 0), 
+	Size = UDim2.new(1, 0,0.85, 0),
+})
+local PlayersFrame = Create("Frame", MainFrame, {
+	BackgroundColor3 = Color3.fromRGB(35, 39, 42), 
+	BackgroundTransparency = 1, 
+	BorderSizePixel = 0, 
+	Position = UDim2.new(1, 0,0., 0), 
+	Size = UDim2.new(0.5, 0,1, 0),
+	Visible = false,
+})
+local ActionFrame = Create("Frame", MainFrame, {
+	BackgroundColor3 = Color3.fromRGB(35, 39, 42), 
+	BackgroundTransparency = 1, 
+	BorderSizePixel = 0, 
+	Position = UDim2.new(1.5, 0,0., 0), 
+	Size = UDim2.new(0.5, 0,1, 0),
+	Visible = false,
+})
+local ButtonFrame = Create("ScrollingFrame", Frame2, {
+	BackgroundColor3 = Color3.fromRGB(255, 255, 255), 
+	BackgroundTransparency = 1, 
+	BorderSizePixel = 0, 
+	Position = UDim2.new(0, 0,0, 0), 
+	Size = UDim2.new(1, 0,1, 0),
+	CanvasSize = UDim2.new(0, 0,5, 0),
+	ScrollBarThickness = 1,
+})
+local PlayersScrollFrame = Create("ScrollingFrame", PlayersFrame, {
+	BackgroundColor3 = Color3.fromRGB(255, 255, 255), 
+	BackgroundTransparency = 1, 
+	BorderSizePixel = 0, 
+	Position = UDim2.new(0, 0,0, 0), 
+	Size = UDim2.new(1, 0,1, 0),
+	CanvasSize = UDim2.new(0, 0,15, 0),
+	ScrollBarThickness = 3,
+})
+local ActionScrollFrame = Create("ScrollingFrame", ActionFrame, {
+	BackgroundColor3 = Color3.fromRGB(255, 255, 255), 
+	BackgroundTransparency = 1, 
+	BorderSizePixel = 0, 
+	Position = UDim2.new(0, 0,0, 0), 
+	Size = UDim2.new(1, 0,1, 0),
+	CanvasSize = UDim2.new(0, 0,15, 0),
+	ScrollBarThickness = 3,
+})
+local GridLayout = Create("UIGridLayout", ButtonFrame, {
+	SortOrder = "LayoutOrder",
+	CellSize = UDim2.new(0, 100,0, 25)
+})
+local GridLayout = Create("UIGridLayout", PlayersScrollFrame, {
+	SortOrder = "LayoutOrder",
+	CellSize = UDim2.new(0, 100,0, 15),
+	CellPadding = UDim2.new(0, 0,0, 0)
+})
+local GridLayout = Create("UIGridLayout", ActionScrollFrame, {
+	SortOrder = "LayoutOrder",
+	CellSize = UDim2.new(0, 100,0, 15),
+	CellPadding = UDim2.new(0, 0,0, 0)
+})
+local hbe = Create("TextButton", ButtonFrame, {
+	BackgroundColor3 = Color3.fromRGB(35, 39, 42), 
+	BackgroundTransparency = 0.75, 
+	BorderSizePixel = 0, 
+	Position = UDim2.new(0, 0,0, 0), 
+	Size = UDim2.new(0.4, 0,0.035, 0),
+	TextColor3 = Color3.fromRGB(255, 255, 255),
+	Font = "GothamSemibold",
+	TextScaled = true,
+	Text = "HBE",
+	BorderColor3 = Color3.fromRGB(85, 255, 127)
+})
+local esp = Create("TextButton", ButtonFrame, {
+	BackgroundColor3 = Color3.fromRGB(35, 39, 42), 
+	BackgroundTransparency = 0.75, 
+	BorderSizePixel = 0, 
+	Position = UDim2.new(0, 0,0, 0), 
+	Size = UDim2.new(0.4, 0,0.035, 0),
+	TextColor3 = Color3.fromRGB(255, 255, 255),
+	Font = "GothamSemibold",
+	TextScaled = true,
+	Text = "ESP",
+	BorderColor3 = Color3.fromRGB(85, 255, 127)
+})
+local collision = Create("TextButton", ButtonFrame, {
+	BackgroundColor3 = Color3.fromRGB(35, 39, 42), 
+	BackgroundTransparency = 0.75, 
+	BorderSizePixel = 0, 
+	Position = UDim2.new(0, 0,0, 0), 
+	Size = UDim2.new(0.4, 0,0.035, 0),
+	TextColor3 = Color3.fromRGB(255, 255, 255),
+	Font = "GothamSemibold",
+	TextScaled = true,
+	Text = "COLLISION (Soon)",
+	BorderColor3 = Color3.fromRGB(85, 255, 127)
+})
+local delete = Create("TextButton", ButtonFrame, {
+	BackgroundColor3 = Color3.fromRGB(35, 39, 42), 
+	BackgroundTransparency = 0.75, 
+	BorderSizePixel = 0, 
+	Position = UDim2.new(0, 0,0, 0), 
+	Size = UDim2.new(0.4, 0,0.035, 0),
+	TextColor3 = Color3.fromRGB(255, 255, 255),
+	Font = "GothamSemibold",
+	TextScaled = true,
+	Text = "DELETE",
+	BorderColor3 = Color3.fromRGB(85, 255, 127)
+})
+local players = Create("TextButton", ButtonFrame, {
+	BackgroundColor3 = Color3.fromRGB(35, 39, 42), 
+	BackgroundTransparency = 0.75, 
+	BorderSizePixel = 0, 
+	Position = UDim2.new(0, 0,0, 0), 
+	Size = UDim2.new(0.4, 0,0.035, 0),
+	TextColor3 = Color3.fromRGB(255, 255, 255),
+	Font = "GothamSemibold",
+	TextScaled = true,
+	Text = "Players",
+	BorderColor3 = Color3.fromRGB(85, 255, 127)
+})
+
+local tpPlayer = Create("TextButton", ActionScrollFrame, {
+	BackgroundColor3 = Color3.fromRGB(35, 39, 42), 
+	BackgroundTransparency = 0.75, 
+	BorderSizePixel = 0, 
+	Position = UDim2.new(0, 0,0, 0), 
+	Size = UDim2.new(0.4, 0,0.035, 0),
+	TextColor3 = Color3.fromRGB(255, 255, 255),
+	Font = "GothamSemibold",
+	TextScaled = true,
+	Text = "Teleport",
+	BorderColor3 = Color3.fromRGB(85, 255, 127)
+})
+
+
+if game.PlaceId == 2262441883 then
+	local maxAmmo = Create("TextButton", ButtonFrame, {
+		BackgroundColor3 = Color3.fromRGB(35, 39, 42), 
+		BackgroundTransparency = 0.75, 
+		BorderSizePixel = 0, 
+		Position = UDim2.new(0, 0,0, 0), 
+		Size = UDim2.new(0.4, 0,0.035, 0),
+		TextColor3 = Color3.fromRGB(255, 255, 255),
+		Font = "GothamSemibold",
+		TextScaled = true,
+		Text = "AMMO (ES)",
+		BorderColor3 = Color3.fromRGB(85, 255, 127)
+	})
+	local nlr = Create("TextButton", ButtonFrame, {
+		BackgroundColor3 = Color3.fromRGB(35, 39, 42), 
+		BackgroundTransparency = 0.75, 
+		BorderSizePixel = 0, 
+		Position = UDim2.new(0, 0,0, 0), 
+		Size = UDim2.new(0.4, 0,0.035, 0),
+		TextColor3 = Color3.fromRGB(255, 255, 255),
+		Font = "GothamSemibold",
+		TextScaled = true,
+		Text = "REMOVE NLR (ES)",
+		BorderColor3 = Color3.fromRGB(85, 255, 127)
+	})
+	local maxHunger = Create("TextButton", ButtonFrame, {
+		BackgroundColor3 = Color3.fromRGB(35, 39, 42), 
+		BackgroundTransparency = 0.75, 
+		BorderSizePixel = 0, 
+		Position = UDim2.new(0, 0,0, 0), 
+		Size = UDim2.new(0.4, 0,0.035, 0),
+		TextColor3 = Color3.fromRGB(255, 255, 255),
+		Font = "GothamSemibold",
+		TextScaled = true,
+		Text = "HUNGER (ES)",
+		BorderColor3 = Color3.fromRGB(85, 255, 127)
+	})
+
+	local tpNode = Create("TextButton", ButtonFrame, {
+		BackgroundColor3 = Color3.fromRGB(35, 39, 42), 
+		BackgroundTransparency = 0.75, 
+		BorderSizePixel = 0, 
+		Position = UDim2.new(0, 0,0, 0), 
+		Size = UDim2.new(0.4, 0,0.035, 0),
+		TextColor3 = Color3.fromRGB(255, 255, 255),
+		Font = "GothamSemibold",
+		TextScaled = true,
+		Text = "Node (ES)",
+		BorderColor3 = Color3.fromRGB(85, 255, 127)
+	})
+
+	local tpPlayerNode = Create("TextButton", ActionScrollFrame, {
+		BackgroundColor3 = Color3.fromRGB(35, 39, 42), 
+		BackgroundTransparency = 0.75, 
+		BorderSizePixel = 0, 
+		Position = UDim2.new(0, 0,0, 0), 
+		Size = UDim2.new(0.4, 0,0.035, 0),
+		TextColor3 = Color3.fromRGB(255, 255, 255),
+		Font = "GothamSemibold",
+		TextScaled = true,
+		Text = "TP NODE",
+		BorderColor3 = Color3.fromRGB(85, 255, 127)
+	})
+
+	tpPlayerNode.Activated:Connect(function()
+		local v = workspace.Buildings[target].Node.Node
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(v.Position)
+	end)
+
+	maxAmmo.Activated:Connect(function()
+		game.Players.LocalPlayer.PlayerData["Pistol Ammo"].Value = 300
+		game.Players.LocalPlayer.PlayerData["Rifle Ammo"].Value = 300
+		game.Players.LocalPlayer.PlayerData["SMG Ammo"].Value = 300
+		game.Players.LocalPlayer.PlayerData["Heavy Ammo"].Value = 300
+	end)
+
+	maxHunger.Activated:Connect(function()
+		while wait(3) do
+			game.Players.LocalPlayer.PlayerData["Hunger"].Value = 100
+		end
+	end)
+
+	nlr.Activated:Connect(function()
+		game.Workspace.NL:Destroy()
+	end)
+
+	tpNode.Activated:Connect(function()
+		local v = workspace.Buildings[game.Players.LocalPlayer.Name].Node.Node
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(v.Position)
+	end)
+
+end
+
+function getPlayers()
+	if not (playerstoggle) then
+		local Players = game:GetService("Players")
+		for i, player in pairs(Players:GetPlayers()) do
+			if player.Name ~= Players.LocalPlayer.Name then
+				local playerButton = Create("TextButton", PlayersScrollFrame, {
+					BackgroundColor3 = Color3.fromRGB(35, 39, 42), 
+					BackgroundTransparency = 0.75, 
+					BorderSizePixel = 0, 
+					Position = UDim2.new(0, 0,0, 0), 
+					Size = UDim2.new(0.4, 0,0.035, 0),
+					TextColor3 = Color3.fromRGB(255, 255, 255),
+					Font = "GothamSemibold",
+					TextScaled = true,
+					Text = player.Name,
+					BorderColor3 = Color3.fromRGB(85, 255, 127)
+				})
+				PlayersFrame.Visible = true
+				playerButton.Activated:Connect(function()
+					target = playerButton.Text
+					ActionFrame.Visible = true
+					tpPlayer.Activated:Connect(function()
+						local v = game.Players[target].Character.HumanoidRootPart
+						game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(v.Position)
+					end)
+				end)
+
+			end
+		end
+
+		playerstoggle = true
+	elseif (playerstoggle) then
+		for i, GuiObj in pairs(PlayersScrollFrame:GetChildren()) do
+			if not GuiObj:IsA("UIGridLayout") then
+				GuiObj:Destroy()
+				PlayersFrame.Visible = false
+				ActionFrame.Visible = false
+			end
+		end
+		playerstoggle = false
+	end
+end
+
+local partTable = {}
+local Mouse = game.Players.LocalPlayer:GetMouse()
+local deleteconnection
+
+function deletefunc()
+	if not (deletetoggle) then
+		Mouse.TargetFilter = game.Players.LocalPlayer.Character
+		deleteconnection = Mouse.Button1Down:Connect(function()
+			if not Mouse.Target then return end
+			if Mouse.Target.ClassName == "Part" or Mouse.Target.ClassName == "MeshPart" then
+				if not partTable[Mouse.Target] then
+					--table.insert(partTable, Mouse.Target)
+
+					Mouse.Target.CanCollide = false
+					Mouse.Target.Transparency = 0.5
+					partTable[Mouse.Target] = true
+				else
+					Mouse.Target.CanCollide = true
+					Mouse.Target.Transparency = 0
+					partTable[Mouse.Target] = false
+				end
+
+			end
+		end)
+		deletetoggle = true
+		delete.BorderSizePixel = 1
+	elseif (deletetoggle) then
+		deletetoggle = false
+		deleteconnection:Disconnect()
+		delete.BorderSizePixel = 0
+	end
+end
+
+local hitboxMax = 6
+local def 
+
+function runHBE()
+	if not (hbetoggle) then
+		local Players = game:GetService("Players")		
+		for i, player in pairs(Players:GetPlayers()) do
+			if player.Name ~= Players.LocalPlayer.Name then
+				
+				
+				if game.PlaceId == 4292776423 then
+					def = player.Character.Head.Size
+					player.Character.Head.Size = Vector3.new(hitboxMax, hitboxMax, hitboxMax)
+					player.Character.HeadHB.Transparency = 0
+					player.Character.HeadHB.OriginalSize.Value = Vector3.new(hitboxMax,hitboxMax,hitboxMax)
+					player.Character.HeadHB.Size = Vector3.new(hitboxMax,hitboxMax,hitboxMax)
+					player.Character.HeadHB.BrickColor = player.TeamColor
+				end
+
+				if game.PlaceId == 286090429 then
+					def = player.Character.Head.Size
+					player.Character.Head.Size = Vector3.new(hitboxMax-2, hitboxMax-2, hitboxMax-2)
+					player.Character.HeadHB.Transparency = 0.5
+					player.Character.HeadHB.OriginalSize.Value = Vector3.new(hitboxMax-2,hitboxMax-2,hitboxMax-2)
+					player.Character.HeadHB.Size = Vector3.new(hitboxMax-2,hitboxMax-2,hitboxMax-2)
+					player.Character.HeadHB.BrickColor = player.TeamColor
+				end
+
+				if game.PlaceId == 2262441883 then
+					
+					local success = pcall(function()
+						return player.Character:WaitForChild("Head", 1), player.Character.Head:WaitForChild("OriginalSize", 1), player.Character:WaitForChild("HumanoidRootPart", 1)
+					end)
+					if (success) then
+						def = player.Character.Head.OriginalSize.Value
+						player.Character.Head.Size = Vector3.new(hitboxMax, hitboxMax, hitboxMax)
+					else
+						warn("! Loading" .. player.Name .. "'s Character")
+					end
+					
+--					def = player.Character.Head.OriginalSize.Value
+--					player.Character.Head.Size = Vector3.new(hitboxMax, hitboxMax, hitboxMax)
+				end
+
+			end	
+		end
+		hbetoggle = true
+		hbe.BorderSizePixel = 1
+	elseif (hbetoggle) then
+		local Players = game:GetService("Players")
+		for i, player in pairs(Players:GetPlayers()) do
+			if player.Name ~= Players.LocalPlayer.Name then
+
+				if game.PlaceId == 4292776423 then
+					player.Character.Head.Size = def
+					player.Character.HeadHB.Transparency = 1
+					player.Character.HeadHB.OriginalSize.Value = Vector3.new(1.222, 1.1, 1.222)
+					player.Character.HeadHB.Size = Vector3.new(1.0998, 1.1, 1.0998)
+				end
+
+				if game.PlaceId == 286090429 then
+					player.Character.Head.Size = def
+					player.Character.HeadHB.Transparency = 1
+					player.Character.HeadHB.OriginalSize.Value = Vector3.new(1.222, 1.1, 1.222)
+					player.Character.HeadHB.Size = Vector3.new(1.0998, 1.1, 1.0998)
+				end
+
+				if game.PlaceId == 2262441883 then
+					
+					local success = pcall(function()
+						return player.Character:WaitForChild("Head", 1), player.Character.Head:WaitForChild("OriginalSize", 1), player.Character:WaitForChild("HumanoidRootPart", 1)
+					end)
+					if (success) then
+						player.Character.Head.Size = def
+					else
+						warn("! Loading" .. player.Name .. "'s Character")
+					end
+					
+--					player.Character.Head.Size = def
+				end
+
+			end	
+		end
+		hbetoggle = false
+		hbe.BorderSizePixel = 0
+	end
+end
+
+function runESP()
+	if not (esptoggle) then
+
+		local Players = game:GetService("Players")
+		for i, player in pairs(Players:GetPlayers()) do
+			if player.Name ~= Players.LocalPlayer.Name then
+				local Character = player.Character
+
+				local success = pcall(function()
+					return Character:WaitForChild("HumanoidRootPart", 1)
+				end)
+				if (success) then
+					local display = Create("BillboardGui", Character.HumanoidRootPart, {
+						Adornee = Character.HumanoidRootPart, 
+						AlwaysOnTop = true, 
+						Size = UDim2.new(5, 0,7, 0)
+					})
+					local frame = Create("Frame", display, {
+						AnchorPoint = Vector2.new(0.5, 0.5),
+						Active = true,
+						BackgroundColor3 = Color3.fromRGB(85, 255, 127), 
+						BackgroundTransparency = 1, 
+						BorderSizePixel = 2,
+						BorderColor3 = Color3.fromRGB(0, 0, 0),
+						Position = UDim2.new(0.5, 0,0.5, 0), 
+						Size = UDim2.new(1, 0,1, 0),
+					})
+					local text1 = Create("TextLabel", frame, {
+						BackgroundTransparency = 1,
+						BorderSizePixel = 0,
+						Size = UDim2.new(1, 0,0.115, 0),
+						Font = "Code",
+						TextColor3 = Color3.fromRGB(255, 255, 255),
+						TextScaled = true,
+						Text = player.Name
+					})		
+
+					if player.TeamColor ~= Players.LocalPlayer.TeamColor then
+						frame.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+					end
+				else
+					warn("! Loading" .. player.Name .. "'s Character")
+				end
+
+				--local display = Create("BillboardGui", Character.HumanoidRootPart, {
+				--	Adornee = Character.HumanoidRootPart, 
+				--	AlwaysOnTop = true, 
+				--	Size = UDim2.new(5, 0,7, 0)
+				--})
+				--local frame = Create("Frame", display, {
+				--	AnchorPoint = Vector2.new(0.5, 0.5),
+				--	Active = true,
+				--	BackgroundColor3 = Color3.fromRGB(85, 255, 127), 
+				--	BackgroundTransparency = 1, 
+				--	BorderSizePixel = 2,
+				--	BorderColor3 = Color3.fromRGB(0, 0, 0),
+				--	Position = UDim2.new(0.5, 0,0.5, 0), 
+				--	Size = UDim2.new(1, 0,1, 0),
+				--})
+				--local text1 = Create("TextLabel", frame, {
+				--	BackgroundTransparency = 1,
+				--	BorderSizePixel = 0,
+				--	Size = UDim2.new(1, 0,0.115, 0),
+				--	Font = "Code",
+				--	TextColor3 = Color3.fromRGB(255, 255, 255),
+				--	TextScaled = true,
+				--	Text = player.Name
+				--})		
+
+				--if player.TeamColor ~= Players.LocalPlayer.TeamColor then
+				--	frame.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+				--end
+
+			end		
+		end
+
+		if game.PlaceId == 2262441883 then
+
+			for i, ESprinter in pairs(workspace.MoneyPrinters:GetChildren()) do
+
+				local success = pcall(function()
+					return ESprinter.Main
+				end)
+				if (success) then
+					local display = Create("BillboardGui", ESprinter.Main, {
+						Adornee = ESprinter.Main, 
+						AlwaysOnTop = true, 
+						Size = UDim2.new(5, 0,5, 0)
+					})
+					local frame = Create("Frame", display, {
+						AnchorPoint = Vector2.new(0.5, 0.5),
+						Active = true,
+						BackgroundColor3 = Color3.fromRGB(85, 255, 255), 
+						BackgroundTransparency = 1, 
+						BorderSizePixel = 2,
+						BorderColor3 = Color3.fromRGB(0, 0, 0),
+						Position = UDim2.new(0.5, 0,0.5, 0), 
+						Size = UDim2.new(1, 0,1, 0),
+					})
+					local text1 = Create("TextLabel", frame, {
+						BackgroundTransparency = 1,
+						BorderSizePixel = 0,
+						Size = UDim2.new(1, 0,0.115, 0),
+						Font = "Code",
+						TextColor3 = Color3.fromRGB(255, 255, 255),
+						TextScaled = true,
+						Text = ESprinter.Name
+					})
+				else
+					warn("Psuedo printer")
+				end
+
+				--local display = Create("BillboardGui", ESprinter.Main, {
+				--	Adornee = ESprinter.Main, 
+				--	AlwaysOnTop = true, 
+				--	Size = UDim2.new(5, 0,5, 0)
+				--})
+				--local frame = Create("Frame", display, {
+				--	AnchorPoint = Vector2.new(0.5, 0.5),
+				--	Active = true,
+				--	BackgroundColor3 = Color3.fromRGB(85, 255, 255), 
+				--	BackgroundTransparency = 1, 
+				--	BorderSizePixel = 2,
+				--	BorderColor3 = Color3.fromRGB(0, 0, 0),
+				--	Position = UDim2.new(0.5, 0,0.5, 0), 
+				--	Size = UDim2.new(1, 0,1, 0),
+				--})
+				--local text1 = Create("TextLabel", frame, {
+				--	BackgroundTransparency = 1,
+				--	BorderSizePixel = 0,
+				--	Size = UDim2.new(1, 0,0.115, 0),
+				--	Font = "Code",
+				--	TextColor3 = Color3.fromRGB(255, 255, 255),
+				--	TextScaled = true,
+				--	Text = ESprinter.Name
+				--})
+
+			end
+		end
+
+		esp.BorderSizePixel = 1
+		esptoggle = true
+	elseif (esptoggle) then	
+		local Players = game:GetService("Players")
+		for i, player in pairs(Players:GetPlayers()) do
+			if player.Name ~= Players.LocalPlayer.Name then
+				local Character = player.Character
+				if not Character.HumanoidRootPart:FindFirstChildOfClass("BillboardGui") then 
+					warn("! New " .. player.Name)
+				else
+					for i, v in pairs(Character.HumanoidRootPart:GetChildren()) do
+						if v:IsA("BillboardGui") then
+							v:Destroy()
+						end
+					end
+					--Character.HumanoidRootPart:FindFirstChildOfClass("BillboardGui"):Destroy()
+				end
+			end	
+		end
+		if game.PlaceId == 2262441883 then
+			for i, ESprinter in pairs(workspace.MoneyPrinters:GetChildren()) do
+
+				local success = pcall(function()
+					return ESprinter.Main
+				end)
+
+				if (success) then
+					if not ESprinter.Main:FindFirstChildOfClass("BillboardGui") then 
+						warn("! New " .. ESprinter.Name)
+					else
+						ESprinter.Main:FindFirstChildOfClass("BillboardGui"):Destroy()
+					end
+
+				else 
+					warn("Psuedo printer")
+				end
+
+				--if not ESprinter.Main:FindFirstChildOfClass("BillboardGui") then 
+				--	warn("! New " .. ESprinter.Name)
+				--else
+				--	ESprinter.Main:FindFirstChildOfClass("BillboardGui"):Destroy()
+				--end
+			end
+		end
+		esp.BorderSizePixel = 0
+		esptoggle = false
+	end
+end
+
+local function keys(input, gps)
+	if input.UserInputType == Enum.UserInputType.Keyboard then
+		if input.KeyCode == Enum.KeyCode.KeypadOne then
+			runHBE()
+		end
+		if input.KeyCode == Enum.KeyCode.KeypadTwo then
+			runESP()
+		end
+		if input.KeyCode == Enum.KeyCode.KeypadThree then
+			deletefunc()
+		end
+	end
+end
+
+game.Players.PlayerAdded:Connect(function (player)
+	player.CharacterAdded:Connect(function(char)
+		if (Active) == false then
+			warn("(Ignore) Last script disabled.")
+			return
+		else
+			warn("! New Player")
+			local success = pcall(function()
+				return char:WaitForChild("Head", 1), char.Head:WaitForChild("OriginalSize", 1), char:WaitForChild("HumanoidRootPart", 1)
+			end)
+			if (success) then
+				runHBE()
+				runHBE()
+			else
+				warn("! Loading" .. player.Name .. "'s Character")
+			end
+			--if char:WaitForChild("Head", 1) and char.Head:WaitForChild("OriginalSize", 1) and char:WaitForChild("HumanoidRootPart", 1) then
+			--	runHBE()
+			--	runHBE()
+			--else
+			--	warn("! Loading" .. player.Name .. "'s Character")
+			--end
+		end
+	end)
+end)
+
+delete.Activated:Connect(deletefunc)
+players.Activated:Connect(getPlayers)
+hbe.Activated:Connect(runHBE)
+esp.Activated:Connect(runESP)
+connection = UIS.InputBegan:Connect(keys)
+
+
+function clear()
+	Active = false
+	hbetoggle = true
+	esptoggle = true
+	collisiontoggle = true
+	deletetoggle = true
+	MainGui:Destroy()
+	connection:Disconnect()
+	deleteconnection:Disconnect()
+	script:Destroy()
+end
+TopButton.MouseButton2Up:Connect(clear)
+
+
+local drag = false
+TopButton.MouseButton1Down:Connect(function()
+	drag = true
+end)
+
+TopButton.MouseButton1Up:Connect(function()
+	drag = false
+	local Players = game:GetService("Players")
+	local Mouse = Players.LocalPlayer:GetMouse()
+	MainFrame.Position = UDim2.fromOffset(Mouse.X, Mouse.Y)
+end)
+
+game:GetService("RunService").RenderStepped:Connect(function()
+	if (drag) == true then
+		local Players = game:GetService("Players")
+		local Mouse = Players.LocalPlayer:GetMouse()
+		MainFrame.Position = UDim2.fromOffset(Mouse.X, Mouse.Y)
+	end	
+end)
+end)
+
+FLY.Name = "FLY"
+FLY.Parent = main
+FLY.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+FLY.Position = UDim2.new(0.417808235, 0, 0.0688259155, 0)
+FLY.Size = UDim2.new(0, 235, 0, 47)
+FLY.Style = Enum.ButtonStyle.RobloxRoundButton
+FLY.Font = Enum.Font.SourceSans
+FLY.Text = "Fly [Press X]"
+FLY.TextColor3 = Color3.fromRGB(0, 0, 0)
+FLY.TextSize = 20.000
+FLY.TextWrapped = true
+FLY.MouseButton1Down:Connect(function()
+	local plr = game.Players.LocalPlayer
+	local mouse = plr:GetMouse()
+
+	localplayer = plr
+
+	if workspace:FindFirstChild("Core") then
+		workspace.Core:Destroy()
+	end
+
+	local Core = Instance.new("Part")
+	Core.Name = "Core"
+	Core.Size = Vector3.new(0.05, 0.05, 0.05)
+
+	spawn(function()
+		Core.Parent = workspace
+		local Weld = Instance.new("Weld", Core)
+		Weld.Part0 = Core
+		Weld.Part1 = localplayer.Character.LowerTorso
+		Weld.C0 = CFrame.new(0, 0, 0)
+	end)
+
+	workspace:WaitForChild("Core")
+
+	local torso = workspace.Core
+	flying = true
+	local speed=20
+	local keys={a=false,d=false,w=false,s=false}
+	local e1
+	local e2
+	local function start()
+		local pos = Instance.new("BodyPosition",torso)
+		local gyro = Instance.new("BodyGyro",torso)
+		pos.Name="EPIXPOS"
+		pos.maxForce = Vector3.new(math.huge, math.huge, math.huge)
+		pos.position = torso.Position
+		gyro.maxTorque = Vector3.new(9e9, 9e9, 9e9)
+		gyro.cframe = torso.CFrame
+		repeat
+			wait()
+			localplayer.Character.Humanoid.PlatformStand=true
+			local new=gyro.cframe - gyro.cframe.p + pos.position
+			if not keys.w and not keys.s and not keys.a and not keys.d then
+				speed=20
+			end
+			if keys.w then
+				new = new + workspace.CurrentCamera.CoordinateFrame.lookVector * speed
+				speed=speed+0
+			end
+			if keys.s then
+				new = new - workspace.CurrentCamera.CoordinateFrame.lookVector * speed
+				speed=speed+0
+			end
+			if keys.d then
+				new = new * CFrame.new(speed,0,0)
+				speed=speed+0
+			end
+			if keys.a then
+				new = new * CFrame.new(-speed,0,0)
+				speed=speed+0
+			end
+			if speed>10 then
+				speed=20
+			end
+			pos.position=new.p
+			if keys.w then
+				gyro.cframe = workspace.CurrentCamera.CoordinateFrame*CFrame.Angles(-math.rad(speed*0),0,0)
+			elseif keys.s then
+				gyro.cframe = workspace.CurrentCamera.CoordinateFrame*CFrame.Angles(math.rad(speed*0),0,0)
+			else
+				gyro.cframe = workspace.CurrentCamera.CoordinateFrame
+			end
+		until flying == false
+		if gyro then gyro:Destroy() end
+		if pos then pos:Destroy() end
+		flying=false
+		localplayer.Character.Humanoid.PlatformStand=false
+		speed=20
+	end
+	e1=mouse.KeyDown:connect(function(key)
+		if not torso or not torso.Parent then flying=false e1:disconnect() e2:disconnect() return end
+		if key=="w" then
+			keys.w=true
+		elseif key=="s" then
+			keys.s=true
+		elseif key=="a" then
+			keys.a=true
+		elseif key=="d" then
+			keys.d=true
+		elseif key=="x" then
+			if flying==true then
+				flying=false
+			else
+				flying=true
+				start()
+			end
+		end
+	end)
+	e2=mouse.KeyUp:connect(function(key)
+		if key=="w" then
+			keys.w=false
+		elseif key=="s" then
+			keys.s=false
+		elseif key=="a" then
+			keys.a=false
+		elseif key=="d" then
+			keys.d=false
+		end
+	end)
+	start()
+end)
+
+ClickTPPressQ.Name = "Click TP [Press Q]"
+ClickTPPressQ.Parent = main
+ClickTPPressQ.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ClickTPPressQ.Position = UDim2.new(0.417808235, 0, 0.279352248, 0)
+ClickTPPressQ.Size = UDim2.new(0, 235, 0, 47)
+ClickTPPressQ.Style = Enum.ButtonStyle.RobloxRoundButton
+ClickTPPressQ.Font = Enum.Font.SourceSans
+ClickTPPressQ.Text = "Click TP [Press Q]"
+ClickTPPressQ.TextColor3 = Color3.fromRGB(0, 0, 0)
+ClickTPPressQ.TextSize = 20.000
+ClickTPPressQ.TextWrapped = true
+ClickTPPressQ.MouseButton1Down:Connect(function()
+	plr = game.Players.LocalPlayer
+	hum = plr.Character.HumanoidRootPart
+	mouse = plr:GetMouse()
+	mouse.KeyDown:Connect(function(key)
+		if key == "q" then
+			if mouse.Target then
+				hum.CFrame = CFrame.new(mouse.Hit.x, mouse.Hit.y + 5, mouse.Hit.z)
+			end
+		end
+	end)
+end)
+
+KnifeReach.Name = "Knife Reach"
+KnifeReach.Parent = main
+KnifeReach.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+KnifeReach.Position = UDim2.new(0.417808235, 0, 0.493927151, 0)
+KnifeReach.Size = UDim2.new(0, 235, 0, 47)
+KnifeReach.Style = Enum.ButtonStyle.RobloxRoundButton
+KnifeReach.Font = Enum.Font.SourceSans
+KnifeReach.Text = "Knife Reach"
+KnifeReach.TextColor3 = Color3.fromRGB(0, 0, 0)
+KnifeReach.TextSize = 20.000
+KnifeReach.TextWrapped = true
+KnifeReach.MouseButton1Down:Connect(function()
+	game.Players.LocalPlayer.Backpack["[Knife]"].Handle.Size = Vector3.new(100, 100, 100)
+end)
+
+AimlockNeedToJoinFortniteGangFromWish.Name = "Aimlock [Need To Join FortniteGangFromWish]"
+AimlockNeedToJoinFortniteGangFromWish.Parent = main
+AimlockNeedToJoinFortniteGangFromWish.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+AimlockNeedToJoinFortniteGangFromWish.Position = UDim2.new(0.417808235, 0, 0.708502054, 0)
+AimlockNeedToJoinFortniteGangFromWish.Size = UDim2.new(0, 235, 0, 47)
+AimlockNeedToJoinFortniteGangFromWish.Style = Enum.ButtonStyle.RobloxRoundButton
+AimlockNeedToJoinFortniteGangFromWish.Font = Enum.Font.SourceSans
+AimlockNeedToJoinFortniteGangFromWish.Text = "Aimlock G [Need To Join FortniteGangFromWish]"
+AimlockNeedToJoinFortniteGangFromWish.TextColor3 = Color3.fromRGB(0, 0, 0)
+AimlockNeedToJoinFortniteGangFromWish.TextSize = 11.000
+AimlockNeedToJoinFortniteGangFromWish.TextWrapped = true
+AimlockNeedToJoinFortniteGangFromWish.MouseButton1Down:Connect(function()
+	local Players = game:GetService('Players')
+	local Player = Players.LocalPlayer
+	if (Player):IsInGroup(13875109) then
+		_G.KEY = "g"
+		_G.PART = "HumanoidRootPart"
+		_G.PRED = 0.057
+		_G.Frame = Vector3.new(0, 0.53, 0)
+		local L_76_ = game:GetService "Workspace".CurrentCamera
+		local L_77_
+		local L_78_ = false
+		local L_79_ = nil
+		local L_80_ = game.Players.LocalPlayer:GetMouse()
+		local L_81_ = Instance.new("Part", game.Workspace)
+		local L_82_ = Instance.new("Folder", game.CoreGui)
+		function makemarker(L_86_arg0, L_87_arg1, L_88_arg2, L_89_arg3, L_90_arg4)
+			local L_91_ = Instance.new("BillboardGui", L_86_arg0)
+			L_91_.Name = "PP"
+			L_91_.Adornee = L_87_arg1
+			L_91_.Size = UDim2.new(L_89_arg3, L_90_arg4, L_89_arg3, L_90_arg4)
+			L_91_.AlwaysOnTop = true
+			local L_92_ = Instance.new("Frame", L_91_)
+			L_92_.Size = UDim2.new(4, 0, 4, 0)
+			L_92_.BackgroundTransparency = 0.1
+			L_92_.BackgroundColor3 = L_88_arg2
+			local L_93_ = Instance.new("UICorner", L_92_)
+			L_93_.CornerRadius = UDim.new(50, 50)
+			return L_91_
+		end
+		local L_83_ = game.Players:GetPlayers()
+		function noob(L_94_arg0)
+			local L_95_
+			repeat
+				wait()
+			until L_94_arg0.Character
+			local L_96_ = makemarker(L_82_, L_94_arg0.Character:WaitForChild(_G.PART), Color3.fromRGB(255, 255, 255), 0.0, 0)
+			L_96_.Name = L_94_arg0.Name
+			L_94_arg0.CharacterAdded:connect(
+				function(L_98_arg0)
+					L_96_.Adornee = L_98_arg0:WaitForChild(_G.PART)
+				end
+			)
+			local L_97_ = Instance.new("TextLabel", L_96_)
+			L_97_.BackgroundTransparency = 1
+			L_97_.Position = UDim2.new(0, 0, 0, -50)
+			L_97_.Size = UDim2.new(0, 100, 0, 100)
+			L_97_.Font = Enum.Font.SourceSansSemibold
+			L_97_.TextSize = 14
+			L_97_.TextColor3 = Color3.new(1, 1, 1)
+			L_97_.TextStrokeTransparency = 0
+			L_97_.TextYAlignment = Enum.TextYAlignment.Bottom
+			L_97_.Text = "Bling" .. L_94_arg0.Name
+			L_97_.ZIndex = 10
+			spawn(
+				function()
+					while wait() do
+						if L_94_arg0.Character then
+						end
+					end
+				end
+			)
+		end
+		for L_99_forvar0 = 1, #L_83_ do
+			if L_83_[L_99_forvar0] ~= game.Players.LocalPlayer then
+				noob(L_83_[L_99_forvar0])
+			end
+		end
+		game.Players.PlayerAdded:connect(
+			function(L_100_arg0)
+				noob(L_100_arg0)
+			end
+		)
+		game.Players.PlayerRemoving:Connect(
+			function(L_101_arg0)
+				L_82_[L_101_arg0.Name]:Destroy()
+			end
+		)
+		spawn(
+			function()
+				L_81_.Anchored = true
+				L_81_.CanCollide = false
+				L_81_.Size = Vector3.new(0.1, 0.1, 0.1)
+				L_81_.Transparency = 0.1
+				makemarker(L_81_, L_81_, Color3.fromRGB(0, 180, 0), 0.20, 0)
+			end
+		)
+		L_80_.KeyDown:Connect(
+			function(L_102_arg0)
+				if L_102_arg0 ~= _G.KEY then
+					return
+				end
+				if L_78_ then
+					L_78_ = false
+					TextLabel.TextColor3 = Color3.fromRGB(255, 20, 75)
+					TextLabel.Text = "------"
+				else
+					L_78_ = true
+					L_77_ = getClosestPlayerToCursor()
+					TextLabel.TextColor3 = Color3.fromRGB(12, 255, 0)
+					TextLabel.Text = L_77_.Character.Humanoid.DisplayName
+				end
+			end
+		)
+		function getClosestPlayerToCursor()
+			local L_103_
+			local L_104_ = math.huge
+			for L_105_forvar0, L_106_forvar1 in pairs(game.Players:GetPlayers()) do
+				if
+					L_106_forvar1 ~= game.Players.LocalPlayer and L_106_forvar1.Character and L_106_forvar1.Character:FindFirstChild("Humanoid") and
+					L_106_forvar1.Character.Humanoid.Health ~= 0 and
+					L_106_forvar1.Character:FindFirstChild(_G.PART)
+				then
+					local L_107_ = L_76_:WorldToViewportPoint(L_106_forvar1.Character.PrimaryPart.Position)
+					local L_108_ = (Vector2.new(L_107_.X, L_107_.Y) - Vector2.new(L_80_.X, L_80_.Y)).magnitude
+					if L_108_ < L_104_ then
+						L_103_ = L_106_forvar1
+						L_104_ = L_108_
+					end
+				end
+			end
+			return L_103_
+		end
+		game:GetService "RunService".Stepped:connect(
+			function()
+				if L_78_ and L_77_.Character and L_77_.Character:FindFirstChild(_G.PART) then
+					L_81_.CFrame =
+						CFrame.new(L_77_.Character[_G.PART].Position + _G.Frame + L_77_.Character[_G.PART].Velocity * L_79_)
+				else
+					L_81_.CFrame = CFrame.new(0, 9999, 0)
+				end
+			end
+		)
+		local L_84_ = getrawmetatable(game)
+		local L_85_ = L_84_.__namecall
+		setreadonly(L_84_, false)
+		L_84_.__namecall =
+			newcclosure(
+				function(...)
+					local L_109_ = {
+						...
+					}
+					if L_78_ and getnamecallmethod() == "FireServer" and L_109_[2] == "UpdateMousePos" then
+					L_109_[3] = L_77_.Character[_G.PART].Position + _G.Frame + L_77_.Character[_G.PART].Velocity * L_79_
+					return L_85_(unpack(L_109_))
+				end
+					return L_85_(...)
+				end
+			)
+		game.Players.LocalPlayer.Chatted:Connect(
+			function(L_110_arg0)
+				if L_110_arg0 == "/e print" then
+					print(_G.PRED)
+				end
+			end
+		)
+		game.Players.LocalPlayer.Chatted:Connect(
+			function(L_111_arg0)
+				if L_111_arg0 == "Code:1029" then
+					_G.KEY = nil
+					_G.AIR = nil
+					_G.PART = nil
+					_G.PRED = nil
+					TextLabel.Visible = false
+				end
+			end
+		)
+		game.Players.LocalPlayer.Chatted:Connect(
+			function(L_112_arg0)
+				if L_112_arg0 == "/e hrp" then
+					_G.KEY = "q"
+					_G.AIR = 0.00005
+					_G.PART = "HumanoidRootPart"
+					_G.PRED = 0.032
+					TextLabel.Visible = true
+				end
+			end
+		)
+		game.Players.LocalPlayer.Chatted:Connect(
+			function(L_113_arg0)
+				if L_113_arg0 == "/e lt" then
+					_G.KEY = "q"
+					_G.AIR = 0.00005
+					_G.PART = "LowerTorso"
+					_G.PRED = 0.032
+					TextLabel.Visible = true
+				end
+			end
+		)
+		game.Players.LocalPlayer.Chatted:Connect(
+			function(L_114_arg0)
+				if L_114_arg0 == "Screensharing" then
+					_G.KEY = "q"
+					_G.AIR = 0.00005
+					_G.PART = "LowerTorso"
+					_G.PRED = 0.033
+					TextLabel.Visible = true
+					L_81_ = nil
+				end
+			end
+		)
+		game.Players.LocalPlayer.Chatted:Connect(
+			function(L_115_arg0)
+				if L_115_arg0 == "/e P+" then
+					_G.PRED = _G.PRED + 0.001
+				end
+			end
+		)
+		game.Players.LocalPlayer.Chatted:Connect(
+			function(L_116_arg0)
+				if L_116_arg0 == "/e P-" then
+					_G.PRED = _G.PRED - 0.001
+				end
+			end
+		)
+		while wait() do
+			if
+				getClosestPlayerToCursor().Character.Humanoid.Jump == true and
+				getClosestPlayerToCursor().Character.Humanoid.FloorMaterial == Enum.Material.Air
+			then
+				_G.Frame = Vector3.new(0, -2.3, 0)
+				wait(0.05)
+			else
+				local L_117_ = game:GetService("Stats").Network.ServerStatsItem["Data Ping"]:GetValueString()
+				local L_118_ = tostring(L_117_)
+				local L_119_ = L_118_:split(" ")
+				local L_120_ = L_119_[1]
+				L_79_ = L_120_ / 1000 + _G.PRED
+				_G.Frame = Vector3.new(0, 0.53, 0)
+			end
+		end
+	else
+		setclipboard("https://www.roblox.com/groups/13875109/FortniteGangFromWish#!/about")
+		return
+	end
+end)
+
+MadeByLogia.Name = "Made By Logia"
+MadeByLogia.Parent = main
+MadeByLogia.BackgroundColor3 = Color3.fromRGB(94, 94, 94)
+MadeByLogia.BorderColor3 = Color3.fromRGB(94, 94, 94)
+MadeByLogia.Position = UDim2.new(0.0433789939, 0, 0.19838056, 0)
+MadeByLogia.Size = UDim2.new(0, 152, 0, 20)
+MadeByLogia.Font = Enum.Font.GothamSemibold
+MadeByLogia.Text = "Made By Logia"
+MadeByLogia.TextColor3 = Color3.fromRGB(180, 180, 180)
+MadeByLogia.TextSize = 16.000
+MadeByLogia.TextXAlignment = Enum.TextXAlignment.Left
