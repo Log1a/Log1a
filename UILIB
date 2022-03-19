@@ -1,0 +1,366 @@
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local UserInputService = game:GetService("UserInputService")
+local RunService = game:GetService("RunService")
+local Workspace = game:GetService("Workspace")
+local Players = game:GetService("Players")
+local CoreGui = game:GetService("CoreGui")
+
+local LocalPlayer = Players.LocalPlayer
+
+local library = {}
+
+function library:Window(title)
+	local window = {}
+
+	-- Gui to Lua
+-- Version: 3.2
+
+-- Instances:
+
+local ScreenGui = Instance.new("ScreenGui")
+local Frame = Instance.new("ImageLabel")
+local TextLabel = Instance.new("TextLabel")
+local TextLabel_Roundify_12px = Instance.new("ImageLabel")
+local ImageLabel = Instance.new("ImageLabel")
+local AthemHub = Instance.new("TextLabel")
+local Main = Instance.new("TextButton")
+local Main_2 = Instance.new("TextButton")
+local Main_3 = Instance.new("TextButton")
+local Main_4 = Instance.new("TextButton")
+
+--Properties:
+
+ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+
+Frame.Name = "Frame"
+Frame.Parent = ScreenGui
+Frame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Frame.BackgroundTransparency = 1.000
+Frame.BorderColor3 = Color3.fromRGB(27, 42, 53)
+Frame.Position = UDim2.new(0.564980507, 0, 0.546405256, 0)
+Frame.Size = UDim2.new(0, 520, 0, 301)
+Frame.Image = "rbxassetid://3570695787"
+Frame.ImageColor3 = Color3.fromRGB(45, 45, 45)
+Frame.ScaleType = Enum.ScaleType.Slice
+Frame.SliceCenter = Rect.new(100, 100, 100, 100)
+Frame.SliceScale = 0.120
+
+TextLabel.Parent = Frame
+TextLabel.BackgroundColor3 = Color3.fromRGB(80, 80, 80)
+TextLabel.BackgroundTransparency = 1.000
+TextLabel.BorderSizePixel = 0
+TextLabel.Position = UDim2.new(-0.0134615414, 0, 0, 0)
+TextLabel.Size = UDim2.new(0, 200, 0, 301)
+TextLabel.Font = Enum.Font.SourceSans
+TextLabel.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel.TextSize = 14.000
+
+TextLabel_Roundify_12px.Name = "TextLabel_Roundify_12px"
+TextLabel_Roundify_12px.Parent = TextLabel
+TextLabel_Roundify_12px.AnchorPoint = Vector2.new(0.5, 0.5)
+TextLabel_Roundify_12px.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_Roundify_12px.BackgroundTransparency = 1.000
+TextLabel_Roundify_12px.Position = UDim2.new(0.5, 0, 0.5, 0)
+TextLabel_Roundify_12px.Size = UDim2.new(1, 0, 1, 0)
+TextLabel_Roundify_12px.Image = "rbxassetid://3570695787"
+TextLabel_Roundify_12px.ImageColor3 = Color3.fromRGB(80, 80, 80)
+TextLabel_Roundify_12px.ScaleType = Enum.ScaleType.Slice
+TextLabel_Roundify_12px.SliceCenter = Rect.new(100, 100, 100, 100)
+TextLabel_Roundify_12px.SliceScale = 0.120
+
+ImageLabel.Parent = Frame
+ImageLabel.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+ImageLabel.BorderColor3 = Color3.fromRGB(45, 45, 45)
+ImageLabel.Position = UDim2.new(0.792038321, 0, 0.0358673818, 0)
+ImageLabel.Size = UDim2.new(0, 100, 0, 125)
+ImageLabel.Image = "http://www.roblox.com/asset/?id=492457955"
+
+AthemHub.Name = "Athem Hub"
+AthemHub.Parent = Frame
+AthemHub.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+AthemHub.BorderColor3 = Color3.fromRGB(45, 45, 45)
+AthemHub.Position = UDim2.new(0.386538446, 0, 0.0564785078, 0)
+AthemHub.Size = UDim2.new(0, 218, 0, 65)
+AthemHub.Font = Enum.Font.GothamBlack
+AthemHub.Text = "Athem Hub"
+AthemHub.TextColor3 = Color3.fromRGB(132, 61, 255)
+AthemHub.TextSize = 40.000
+AthemHub.TextStrokeColor3 = Color3.fromRGB(170, 85, 255)
+
+Main.Name = "Main"
+Main.Parent = Frame
+Main.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Main.Position = UDim2.new(0.00576923089, 0, 0.0897009969, 0)
+Main.Size = UDim2.new(0, 180, 0, 45)
+Main.Style = Enum.ButtonStyle.RobloxRoundButton
+Main.Font = Enum.Font.GothamSemibold
+Main.Text = "Main"
+Main.TextColor3 = Color3.fromRGB(0, 0, 0)
+Main.TextSize = 14.000
+
+Main_2.Name = "Main"
+Main_2.Parent = Frame
+Main_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Main_2.Position = UDim2.new(0.00576923089, 0, 0.272425234, 0)
+Main_2.Size = UDim2.new(0, 180, 0, 45)
+Main_2.Style = Enum.ButtonStyle.RobloxRoundButton
+Main_2.Font = Enum.Font.GothamSemibold
+Main_2.Text = "Main"
+Main_2.TextColor3 = Color3.fromRGB(0, 0, 0)
+Main_2.TextSize = 14.000
+
+Main_3.Name = "Main"
+Main_3.Parent = Frame
+Main_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Main_3.Position = UDim2.new(0.00576923089, 0, 0.451827228, 0)
+Main_3.Size = UDim2.new(0, 180, 0, 45)
+Main_3.Style = Enum.ButtonStyle.RobloxRoundButton
+Main_3.Font = Enum.Font.GothamSemibold
+Main_3.Text = "Main"
+Main_3.TextColor3 = Color3.fromRGB(0, 0, 0)
+Main_3.TextSize = 14.000
+
+Main_4.Name = "Main"
+Main_4.Parent = Frame
+Main_4.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Main_4.Position = UDim2.new(0.00576923089, 0, 0.647840559, 0)
+Main_4.Size = UDim2.new(0, 180, 0, 45)
+Main_4.Style = Enum.ButtonStyle.RobloxRoundButton
+Main_4.Font = Enum.Font.GothamSemibold
+Main_4.Text = "Main"
+Main_4.TextColor3 = Color3.fromRGB(0, 0, 0)
+Main_4.TextSize = 14.000
+		local ms = game.Players.LocalPlayer:GetMouse()
+		local btn = fiber_manual_record
+
+
+		btn.MouseButton1Click:Connect(function()
+			local c = Sample:Clone()
+			c.Parent = btn
+			local x, y = (ms.X - c.AbsolutePosition.X), (ms.Y - c.AbsolutePosition.Y)
+			c.Position = UDim2.new(0, x, 0, y)
+			local len, size = 0.35, nil
+			if btn.AbsoluteSize.X >= btn.AbsoluteSize.Y then
+				size = (btn.AbsoluteSize.X * 1.5)
+			else
+				size = (btn.AbsoluteSize.Y * 1.5)
+			end
+			c:TweenSizeAndPosition(UDim2.new(0, size, 0, size), UDim2.new(0.5, (-size / 2), 0.5, (-size / 2)), 'Out', 'Quad', len, true, nil)
+			for i = 1, 10 do
+				c.ImageTransparency = c.ImageTransparency + 0.05
+				wait(len / 12)
+			end
+			c:Destroy()
+		end)
+
+		local frame = Frame_5
+		local enabled = false
+
+		function turn()
+			enabled = not enabled
+			callback(enabled)
+
+			if enabled then
+				while enabled and checked.ImageTransparency > 0 and wait() do
+					checked.ImageTransparency = checked.ImageTransparency - 0.2
+				end
+			else
+				while not enabled and checked.ImageTransparency < 1 and wait() do
+					checked.ImageTransparency = checked.ImageTransparency + 0.2
+				end
+			end
+		end
+
+		checked.MouseButton1Click:Connect(turn)
+		unchecked.MouseButton1Click:Connect(turn)
+
+		local ms = game.Players.LocalPlayer:GetMouse()
+
+		local btn = checked
+
+
+		btn.MouseButton1Click:Connect(function()
+			local c = Sample:Clone()
+			c.Parent = btn
+			local x, y = (ms.X - c.AbsolutePosition.X), (ms.Y - c.AbsolutePosition.Y)
+			c.Position = UDim2.new(0, x, 0, y)
+			local len, size = 0.35, nil
+			if btn.AbsoluteSize.X >= btn.AbsoluteSize.Y then
+				size = (btn.AbsoluteSize.X * 1.5)
+			else
+				size = (btn.AbsoluteSize.Y * 1.5)
+			end
+			c:TweenSizeAndPosition(UDim2.new(0, size, 0, size), UDim2.new(0.5, (-size / 2), 0.5, (-size / 2)), 'Out', 'Quad', len, true, nil)
+			for i = 1, 10 do
+				c.ImageTransparency = c.ImageTransparency + 0.05
+				wait(len / 12)
+			end
+			c:Destroy()
+		end)
+
+		local ms = game.Players.LocalPlayer:GetMouse()
+
+		local btn = unchecked
+
+
+		btn.MouseButton1Click:Connect(function()
+			local c = Sample:Clone()
+			c.Parent = btn
+			local x, y = (ms.X - c.AbsolutePosition.X), (ms.Y - c.AbsolutePosition.Y)
+			c.Position = UDim2.new(0, x, 0, y)
+			local len, size = 0.35, nil
+			if btn.AbsoluteSize.X >= btn.AbsoluteSize.Y then
+				size = (btn.AbsoluteSize.X * 1.5)
+			else
+				size = (btn.AbsoluteSize.Y * 1.5)
+			end
+			c:TweenSizeAndPosition(UDim2.new(0, size, 0, size), UDim2.new(0.5, (-size / 2), 0.5, (-size / 2)), 'Out', 'Quad', len, true, nil)
+			for i = 1, 10 do
+				c.ImageTransparency = c.ImageTransparency + 0.05
+				wait(len / 12)
+			end
+			c:Destroy()
+		end)
+	end
+
+	function window:Slider(text, options, callback)
+		local Frame_6 = Instance.new("Frame")
+		local TextLabel_3 = Instance.new("TextLabel")
+		local TextButton = Instance.new("TextButton")
+		local Frame_7 = Instance.new("Frame")
+		local UICorner_3 = Instance.new("UICorner")
+		local bar = Instance.new("Frame")
+		local UICorner_4 = Instance.new("UICorner")
+		local UICorner_5 = Instance.new("UICorner")
+		local amount = Instance.new("TextLabel")
+
+		Frame_6.Parent = ScrollingFrame
+		Frame_6.BackgroundColor3 = Color3.fromRGB(111, 102, 78)
+		Frame_6.BackgroundTransparency = 1.000
+		Frame_6.BorderColor3 = Color3.fromRGB(27, 42, 53)
+		Frame_6.Position = UDim2.new(0, 0, 0.430107534, 0)
+		Frame_6.Size = UDim2.new(0, 239, 0, 50)
+
+		TextLabel_3.Parent = Frame_6
+		TextLabel_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+		TextLabel_3.BackgroundTransparency = 1.000
+		TextLabel_3.Position = UDim2.new(0.0368297361, 0, 0.135309443, 0)
+		TextLabel_3.Size = UDim2.new(0, 159, 0, 15)
+		TextLabel_3.Font = Enum.Font.GothamSemibold
+		TextLabel_3.Text = text
+		TextLabel_3.TextColor3 = Color3.fromRGB(176, 176, 176)
+		TextLabel_3.TextSize = 13.000
+		TextLabel_3.TextXAlignment = Enum.TextXAlignment.Left
+
+		TextButton.Parent = Frame_6
+		TextButton.BackgroundColor3 = Color3.fromRGB(48, 48, 48)
+		TextButton.Position = UDim2.new(0.0227645803, 0, 0.559468389, 0)
+		TextButton.Size = UDim2.new(0, 233, 0, 16)
+		TextButton.AutoButtonColor = false
+		TextButton.Font = Enum.Font.SourceSans
+		TextButton.Text = ""
+		TextButton.TextColor3 = Color3.fromRGB(0, 0, 0)
+		TextButton.TextSize = 14.000
+
+		Frame_7.Parent = TextButton
+		Frame_7.BackgroundColor3 = Color3.fromRGB(71, 71, 71)
+		Frame_7.Position = UDim2.new(0.0167364683, 0, 0.195085526, 0)
+		Frame_7.Size = UDim2.new(0, 226, 0, 9)
+
+		UICorner_3.Parent = Frame_7
+
+		bar.Name = "bar"
+		bar.Parent = Frame_7
+		bar.BackgroundColor3 = Color3.fromRGB(135, 135, 135)
+		bar.BorderColor3 = Color3.fromRGB(27, 42, 53)
+		bar.BorderSizePixel = 0
+		bar.Size = UDim2.new(0, 36, 0, 9)
+
+		UICorner_4.Parent = bar
+
+		UICorner_5.Parent = TextButton
+
+		amount.Name = "amount"
+		amount.Parent = Frame_6
+		amount.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+		amount.BackgroundTransparency = 1.000
+		amount.Position = UDim2.new(0.748126805, 0, 0.135309443, 0)
+		amount.Size = UDim2.new(0, 56, 0, 15)
+		amount.Font = Enum.Font.GothamSemibold
+		amount.Text = "16"
+		amount.TextColor3 = Color3.fromRGB(176, 176, 176)
+		amount.TextSize = 14.000
+		amount.TextXAlignment = Enum.TextXAlignment.Right
+
+		local pr = TextButton
+		local hold = false
+		local bar = pr.Frame.bar
+		local amt = pr.Parent.amount
+		local max = options.max
+		local default = options.def or options.default
+
+		local plr = game.Players.LocalPlayer
+		local ms = plr:GetMouse()
+		local rlpos
+		local rlsiz
+		local ap = Vector2.new(pr.AbsolutePosition.X, pr.AbsolutePosition.Y)
+		local as = Vector2.new(pr.AbsoluteSize.X, pr.AbsoluteSize.Y)
+
+		amt.Text = tostring(default)
+		bar.Size = UDim2.new(0, (226/max)*default, 0, 9)
+
+		pr.MouseButton1Down:Connect(function()
+			hold = true
+		end)
+
+		game:GetService('UserInputService').InputEnded:Connect(function(input)
+			if input.UserInputType == Enum.UserInputType.MouseButton1 then
+				hold = false
+			end
+		end)
+
+		game:GetService('RunService').RenderStepped:Connect(function()
+			if hold then
+				ap = Vector2.new(pr.AbsolutePosition.X, pr.AbsolutePosition.Y)
+				as = Vector2.new(pr.AbsoluteSize.X, pr.AbsoluteSize.Y)
+
+				rlpos = (ms.X-ap.X)
+				rlsiz = (ms.X-ap.X)
+				local result = math.floor(max * (rlsiz / 226))
+				if rlpos > 226 then
+					result = max
+				elseif rlpos < 0 then
+					result = 0
+				end
+
+				if rlsiz <= 226 and rlsiz >= 0 then
+					amt.Text = tostring(result)
+					bar.Size = UDim2.new(0, rlsiz, 0, 9)
+					bar.Visible = true
+					callback(result)
+				end
+				if rlsiz <= 0 then
+					amt.Text = tostring(0)
+					bar.Size = UDim2.new(0, 0, 0, 9)
+					bar.Visible = false
+					callback(0)
+				end
+				if rlsiz >= 226 then
+					amt.Text = tostring(max)
+					bar.Size = UDim2.new(0, 226, 0, 9)
+					bar.Visible = true
+					callback(max)
+				end
+				
+			end
+		end)
+	end
+
+	pcall(function()
+  		syn.protect_gui(ScreenGui) -- Synapse function makes the ui object undetectable for any non synapse script
+	end)
+	ScreenGui.Parent = CoreGui
+	return window
+end
+
+return library
